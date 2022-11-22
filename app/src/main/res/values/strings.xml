@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">AlvarezLuis1Eva</string>
+    <string name="alumno">Luis Alvarez Cueva</string>
+    <string name="contacto">Contacto</string>
+
+    <string name="cero">0</string>
+    <string name="uno">1</string>
+    <string name="dos">2</string>
+    <string name="tres">3</string>
+    <string name="cuatro">4</string>
+    <string name="cinco">5</string>
+    <string name="seis">6</string>
+    <string name="siete">7</string>
+    <string name="ocho">8</string>
+    <string name="nueve">9</string>
+
+    <string name="inv">INV</string>
+    <string name="delete">BORRAR</string>
+    <string name="div">/</string>
+    <string name="plus">+</string>
+    <string name="sub">-</string>
+    <string name="mul">*</string>
+    <string name="dot">.</string>
+    <string name="equal">=</string>
+
+    <string name="email">Email</string>
+    <string name="asunto">Asunto</string>
+    <string name="contenido">Contenido</string>
+    <string name="enviar">Enviar</string>
+</resources>
