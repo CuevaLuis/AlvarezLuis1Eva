@@ -60,13 +60,13 @@ public class calculadora extends AppCompatActivity {
             change = true;
         }
 
-        if(numTwo.equals("0") && operacion != -1){
+        if(numTwo.equals("0") && numTwo.length()<8 && operacion != -1){
             numTwo = i + "";
             result.setText(numTwo);
             change = true;
         }
 
-        if (finish && !change){
+        if (finish && numOne.length()<8 && !change){
             finish = false;
             numOne = i + "";
             result.setText(numOne);
@@ -286,6 +286,12 @@ public class calculadora extends AppCompatActivity {
         bPunto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (!numOne.contains(".") && numTwo.equals("")){
+                    numOne +=".";
+                    result.setText(numOne);
+                }
+
                 if (finish && !numOne.contains(".")){
                     finish = false;
                     numOne +=".";
