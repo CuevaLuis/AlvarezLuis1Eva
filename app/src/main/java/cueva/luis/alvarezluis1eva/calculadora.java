@@ -42,25 +42,25 @@ public class calculadora extends AppCompatActivity {
 
         boolean change = false;
 
-        if (!numOne.equals("0") && (numTwo.equals("") || numTwo.equals("0")) && numOne.length()<8 && operacion == -1){
+        if (!numOne.equals("0") && (numTwo.equals("") || numTwo.equals("0")) && numOne.length()<8 && operacion == -1 && !change){
             numOne += i;
             result.setText(numOne);
             change = true;
         }
 
-        if (numOne.equals("0") && numTwo.equals("") && numOne.length()<8 && operacion == -1){
+        if (numOne.equals("0") && numTwo.equals("") && numOne.length()<8 && operacion == -1 && !change){
             numOne = i + "";
             result.setText(numOne);
             change = true;
         }
 
-        if(!numTwo.equals("0") && numTwo.length()<8 && operacion != -1){
+        if(!numTwo.equals("0") && numTwo.length()<8 && operacion != -1 && !change){
             numTwo += i;
             result.setText(numTwo);
             change = true;
         }
 
-        if(numTwo.equals("0") && numTwo.length()<8 && operacion != -1){
+        if(numTwo.equals("0") && numTwo.length()<8 && operacion != -1 && !change){
             numTwo = i + "";
             result.setText(numTwo);
             change = true;
@@ -119,7 +119,7 @@ public class calculadora extends AppCompatActivity {
                 }
 
                 if (numOne.equals("0") && numTwo.equals("") && numOne.length()<8 && operacion == -1){
-
+                    result.setText(numOne);
                 }
 
                 if(!numTwo.equals("0") && numTwo.length()<8 && operacion != -1){
@@ -128,12 +128,11 @@ public class calculadora extends AppCompatActivity {
                 }
 
                 if(numTwo.equals("0") && operacion != -1){
-
+                    result.setText(numTwo);
                 }
 
                 if (finish){
                     finish = false;
-                    result.setText(numOne);
                 }
             }
         });
@@ -242,43 +241,49 @@ public class calculadora extends AppCompatActivity {
         bIgual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (operacion != -1) {
-                    switch (operacion) {
-                        case 1:
-                            try {
-                                numOne = Funciones.dividir(Double.parseDouble(numOne), Double.parseDouble(numTwo)) + "";
+                try{
+                     if (operacion != -1) {
+                        switch (operacion) {
+                            case 1:
+                                try {
+                                    numOne = Funciones.dividir(Double.parseDouble(numOne), Double.parseDouble(numTwo)) + "";
+                                    result.setText(numOne + "");
+                                } catch (ArithmeticException e){
+                                    numOne = 0 + "";
+                                    result.setText(numOne);
+                                } finally {
+                                    numTwo = "0";
+                                    finish = true;
+                                    operacion = -1;
+                                    break;
+                                }
+                            case 2:
+                                numOne = Funciones.multiplicar(Double.parseDouble(numOne), Double.parseDouble(numTwo)) + "";
                                 result.setText(numOne + "");
-                            } catch (ArithmeticException e){
-                                numOne = 0 + "";
-                                result.setText(numOne);
-                            } finally {
                                 numTwo = "0";
                                 finish = true;
                                 operacion = -1;
                                 break;
-                            }
-                        case 2:
-                            numOne = Funciones.multiplicar(Double.parseDouble(numOne), Double.parseDouble(numTwo)) + "";
-                            result.setText(numOne + "");
-                            numTwo = "0";
-                            finish = true;
-                            operacion = -1;
-                            break;
-                        case 3:
-                            numOne = Funciones.sumar(Double.parseDouble(numOne), Double.parseDouble(numTwo)) + "";
-                            result.setText(numOne + "");
-                            numTwo = "0";
-                            finish = true;
-                            operacion = -1;
-                            break;
-                        case 4:
-                            numOne = Funciones.restar(Double.parseDouble(numOne), Double.parseDouble(numTwo)) + "";
-                            result.setText(numOne);
-                            numTwo = "0";
-                            finish = true;
-                            operacion = -1;
-                            break;
+                            case 3:
+                                numOne = Funciones.sumar(Double.parseDouble(numOne), Double.parseDouble(numTwo)) + "";
+                                result.setText(numOne + "");
+                                numTwo = "0";
+                                finish = true;
+                                operacion = -1;
+                                break;
+                            case 4:
+                                numOne = Funciones.restar(Double.parseDouble(numOne), Double.parseDouble(numTwo)) + "";
+                                result.setText(numOne);
+                                numTwo = "0";
+                                finish = true;
+                                operacion = -1;
+                                break;
+                        }
                     }
+            } catch(Exception e){
+                    numOne = "0";
+                    numTwo = "0";
+                    result.setText(numOne);
                 }
             }
         });
@@ -313,15 +318,30 @@ public class calculadora extends AppCompatActivity {
         bInv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                try{
+                    if(operacion == -1){
+                        Double res = Funciones.inverso(Double.parseDouble(numOne));
+                        numOne = res + "";
 
-                if(operacion == -1){
-                    Double res = Funciones.inverso(Double.parseDouble(numOne));
-                    numOne = res + "";
+                        if(numOne.length() > 8){
+                            numOne = numOne.substring(0,8);
+                        }
+
+                        result.setText(numOne);
+                    } else{
+                        Double res = Funciones.inverso(Double.parseDouble(numTwo));
+                        numTwo = res + "";
+
+                        if(numTwo.length() > 8){
+                            numTwo = numTwo.substring(0,8);
+                        }
+
+                        result.setText(numTwo);
+                    }
+                } catch(Exception e){
+                    numOne = "0";
+                    numTwo = "0";
                     result.setText(numOne);
-                } else{
-                    Double res = Funciones.inverso(Double.parseDouble(numTwo));
-                    numTwo = res + "";
-                    result.setText(numTwo);
                 }
             }
         });
