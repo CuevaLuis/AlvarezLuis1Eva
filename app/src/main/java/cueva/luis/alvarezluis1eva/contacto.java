@@ -1,9 +1,12 @@
 package cueva.luis.alvarezluis1eva;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +25,27 @@ public class contacto extends AppCompatActivity {
         super.onRestart();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu2, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.MnOp4:
+                Intent intent = new Intent (this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.MnOp5:
+                Intent intent2 = new Intent (this, calculadora.class);
+                startActivity(intent2);
+                break;
+        }
+        return true;
     }
 
     @Override
