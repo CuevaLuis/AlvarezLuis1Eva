@@ -323,7 +323,7 @@ public class calculadora extends AppCompatActivity {
                         Double res = Funciones.inverso(Double.parseDouble(numOne));
                         numOne = res + "";
 
-                        if(numOne.length() > 8){
+                        if(numOne.length() >= 8){
                             numOne = numOne.substring(0,8);
                         }
 
@@ -332,7 +332,7 @@ public class calculadora extends AppCompatActivity {
                         Double res = Funciones.inverso(Double.parseDouble(numTwo));
                         numTwo = res + "";
 
-                        if(numTwo.length() > 8){
+                        if(numTwo.length() >= 8){
                             numTwo = numTwo.substring(0,8);
                         }
 
@@ -349,20 +349,10 @@ public class calculadora extends AppCompatActivity {
         bBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!numOne.equals("0") && numTwo.equals("") && numOne.length()<8){
-                    numOne = "0";
-                    result.setText(numOne);
-                }
-
-                if(!numTwo.equals("") && !numTwo.equals("0") && numTwo.length()<8){
-                    numTwo = "0";
-                    result.setText(numTwo);
-                }
-
-                if(finish){
-                    numOne = "0";
-                    result.setText(numOne);
-                }
+                numOne = "0";
+                numTwo = "0";
+                result.setText(numOne);
+                finish = true;
             }
         });
     }
