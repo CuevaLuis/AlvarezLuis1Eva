@@ -18,6 +18,13 @@ public class contacto extends AppCompatActivity {
     SeekBar puntuacion;
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacto);
