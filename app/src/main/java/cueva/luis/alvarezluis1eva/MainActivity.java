@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -37,13 +38,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.MnOp2:
+            case R.id.SnOpA:
                 Intent intent = new Intent (this, contacto.class);
                 startActivity(intent);
                 break;
-            case R.id.MnOp3:
+            case R.id.SnOpB:
+                String url2 = "https://www.gmail.com/";
+
+                Intent intent4 = new Intent(Intent.ACTION_VIEW, Uri.parse(url2));
+                startActivity(intent4);
+                break;
+            case R.id.SnOp1:
                 Intent intent2 = new Intent (this, calculadora.class);
                 startActivity(intent2);
+                break;
+            case R.id.SnOp2:
+                String url = "https://web2.0calc.es/";
+
+                Intent intent3 = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent3);
                 break;
         }
         return true;

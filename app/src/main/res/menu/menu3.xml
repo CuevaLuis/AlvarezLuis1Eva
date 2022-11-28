@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/MnOp6" android:title="Inicio"></item>
-    <item android:id="@+id/MnOp7" android:title="Contacto"></item>
+    <item android:id="@+id/MnOp7" android:title="Contacto">
+        <menu>
+            <item android:id="@+id/SnOpE" android:title="Contacto"></item>
+            <item android:id="@+id/SnOpF" android:title="GMail"></item>
+        </menu>
+    </item>
+    <item android:id="@+id/MnOp8" android:title="Calculadora">
+        <menu>
+            <item android:id="@+id/SnOp5" android:title="Web"></item>
+        </menu>
+    </item>
 </menu>

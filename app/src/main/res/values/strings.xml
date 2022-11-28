@@ -16,6 +16,7 @@
 
     <string name="inv">INV</string>
     <string name="delete">BORRAR</string>
+    <string name="elevar">^2</string>
     <string name="div">/</string>
     <string name="plus">+</string>
     <string name="sub">-</string>

@@ -4,12 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class calculadora extends AppCompatActivity {
 
@@ -35,6 +38,7 @@ public class calculadora extends AppCompatActivity {
     Button bPunto;
     Button bInv;
     Button bBorrar;
+    Button bElevar;
 
     static String numOne;
     static String numTwo;
@@ -90,9 +94,21 @@ public class calculadora extends AppCompatActivity {
                 Intent intent = new Intent (this, MainActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.MnOp7:
+            case R.id.SnOpE:
                 Intent intent2 = new Intent (this, contacto.class);
                 startActivity(intent2);
+                break;
+            case R.id.SnOpF:
+                String url2 = "https://www.gmail.com/";
+
+                Intent intent4 = new Intent(Intent.ACTION_VIEW, Uri.parse(url2));
+                startActivity(intent4);
+                break;
+            case R.id.SnOp5:
+                String url = "https://web2.0calc.es/";
+
+                Intent intent3 = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent3);
                 break;
         }
         return true;
@@ -125,6 +141,7 @@ public class calculadora extends AppCompatActivity {
         bPunto = (Button) findViewById(R.id.bDot);
         bInv = (Button) findViewById(R.id.bInv);
         bBorrar = (Button) findViewById(R.id.bDelete);
+        bElevar = (Button) findViewById(R.id.bElevar);
 
         numOne = "0";
         numTwo = "";
@@ -133,6 +150,16 @@ public class calculadora extends AppCompatActivity {
         finish = false;
 
         result.setText(numOne);
+
+        bElevar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double num = Double.parseDouble((String) result.getText());
+                numOne = Funciones.elevar(num) + "";
+                numTwo = "0";
+                result.setText(numOne);
+            }
+        });
 
         b0.setOnClickListener(new View.OnClickListener() {
             @Override

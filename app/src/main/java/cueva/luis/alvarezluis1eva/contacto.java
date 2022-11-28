@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,9 +41,21 @@ public class contacto extends AppCompatActivity {
                 Intent intent = new Intent (this, MainActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.MnOp5:
+            case R.id.SnOpC:
+                String url2 = "https://www.gmail.com/";
+
+                Intent intent4 = new Intent(Intent.ACTION_VIEW, Uri.parse(url2));
+                startActivity(intent4);
+                break;
+            case R.id.SnOp3:
                 Intent intent2 = new Intent (this, calculadora.class);
                 startActivity(intent2);
+                break;
+            case R.id.SnOp4:
+                String url = "https://web2.0calc.es/";
+
+                Intent intent3 = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent3);
                 break;
         }
         return true;

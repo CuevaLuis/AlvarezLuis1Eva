@@ -32,4 +32,8 @@ public class Funciones {
         return Double.parseDouble(ret);
     }
 
+    public static double elevar(double a){
+        return Math.pow(a, 2);
+    }
+
 }

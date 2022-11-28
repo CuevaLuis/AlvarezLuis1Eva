@@ -105,17 +105,17 @@
 
     <Button
         android:id="@+id/bDelete"
-        android:layout_width="167dp"
-        android:layout_height="89dp"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
         android:backgroundTint="@color/white"
         android:text="@string/delete"
         android:textColor="@color/black25"
-        android:textSize="24sp"
+        android:textSize="8sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintEnd_toStartOf="@+id/guideline10"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
         android:id="@+id/bInv"
@@ -273,7 +273,8 @@
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline8"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.3"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/bDot"
@@ -342,5 +343,18 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+    <Button
+        android:id="@+id/bElevar"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/elevar"
+        android:textColor="@color/black25"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintStart_toStartOf="@+id/guideline9"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
